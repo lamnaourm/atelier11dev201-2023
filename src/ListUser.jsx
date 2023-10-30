@@ -14,7 +14,7 @@ export default class ListUser extends Component {
             <div className='list'>
                 <h1>Nombre d'utilisateurs : {this.state.users.length}</h1>
                 {this.state.users.map(u => 
-                    <div className='user'>
+                    <div key={u.id} className='user'>
                         <h3>Nom : {u.name}</h3>
                         <p>Email : {u.email}</p>
                         <p>Ville : {u.address.city} Rue:{u.address.street}</p>
@@ -22,11 +22,11 @@ export default class ListUser extends Component {
 
                         {
                             this.state.activeId === u.id && 
-                            <div>
+                            <div className='posts'>
                                 <h2>Nombre de posts : {this.state.posts.length}</h2>
                                 {
                                     this.state.posts.map(p => 
-                                        <div>
+                                        <div key={p.id} className='post'>
                                             <h3>{p.title}</h3>
                                             <p>{p.body}</p>
                                         </div>
